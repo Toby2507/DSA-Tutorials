@@ -62,3 +62,5 @@ E.connect(C);
 // GRAPH
 const graph = new Graph([A, B, C, D, E, F]);
 console.log(graph.topologicalSort());
+
+console.log(JSON.stringify([1, 2, 3]) === JSON.stringify([1, 2, 3]));
