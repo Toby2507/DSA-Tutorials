@@ -2,7 +2,7 @@
 // Should return a boolean indicating if the target can be generated from the numbers in the array
 // Elements in the array can be reused as much as needed. All imputes are non negative
 
-// Unoptimized version Time: O(n^m) Space: O(m)
+// Unoptimized version Time: O(n^m) Space: O(m)  where n = length of array and m = target
 const canSum1 = (target, numbers) => {
   if (target === 0) return true;
   if (target < 0) return false;
@@ -11,7 +11,7 @@ const canSum1 = (target, numbers) => {
   }
   return false;
 };
-// Optimized version Time: O(m * n) Space: O(m)
+// Optimized version Time: O(m * n) Space: O(m)  where n = length of array and m = target
 const canSum = (target, numbers, memo = {}) => {
   if (target in memo) return memo[target];
   if (target === 0) return true;
