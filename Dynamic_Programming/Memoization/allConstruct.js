@@ -1,7 +1,7 @@
 // Should accept a target and an array of strings
 // Should return a 2D array containing all the ways that the target can be constructed
 
-// Unoptimized version Time: O(n^m * m) Space: O(m^2)
+// Unoptimized version Time: ~O(n^m) where m = target.length and n = wordBank.length
 const allConstruct1 = (target, wordBank) => {
   if (!target) return [[]];
   let constructs = [];
@@ -14,7 +14,7 @@ const allConstruct1 = (target, wordBank) => {
   return constructs;
 };
 
-// Optimized version Time: O(n^m)
+// Optimized version Time: ~O(n^m)
 const allConstruct = (target, wordBank, memo = {}) => {
   if (target in memo) return memo[target];
   if (!target) return [[]];
