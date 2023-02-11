@@ -1,0 +1,8 @@
+// Push operation Time: O(1)
+// Pop operation Time: O(n)
+// Shift operation Time: O(1)
+// Unshift operation Time: O(1)
+// Insertion operation Time: O(n)
+// Remove at middle Time: O(n)
+// Find by value Time: O(n)
+// Find by index Time: O(n)
