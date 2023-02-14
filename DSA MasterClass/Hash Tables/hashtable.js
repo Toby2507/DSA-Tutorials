@@ -21,9 +21,35 @@ class HashTable {
     this.dataMap[idx].push([key, val]);
     return this;
   }
+
+  get(key) {
+    const idx = this.#hash(key);
+    if (!this.dataMap[idx]) return null;
+    return (this.dataMap[idx].filter(val => val[0] === key))[0][1]
+  }
+
+  entries() {
+    const keys = [];
+    for (let vals of this.dataMap) {
+      if (vals) vals.forEach(val => keys.push(val));
+    }
+    return keys;
+  }
+
+  keys() {
+    return this.entries().map(entry => entry[0])
+  }
+
+  values() {
+    return this.entries().map(entry => entry[1])
+  }
 }
 
 const hashMap = new HashTable();
-hashMap.set("bolts", 1400);
-hashMap.set("washers", 50);
-console.log(hashMap);
+console.log(hashMap.set("bolts", 1400));
+console.log(hashMap.set("washers", 50));
+console.log(hashMap.set("lumber", 70));
+console.log(hashMap.get("bolts"));
+console.log(hashMap.entries());
+console.log(hashMap.keys());
+console.log(hashMap.values());
