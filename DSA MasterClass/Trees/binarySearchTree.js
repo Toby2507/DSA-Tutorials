@@ -71,3 +71,5 @@ tree.insert(27);
 console.log(tree.contains(8));
 console.log(tree.remove(52));
 console.log(tree.print());
+
+module.exports = { BST };

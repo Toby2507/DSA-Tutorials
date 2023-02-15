@@ -62,6 +62,16 @@ class BST {
     }
     return result;
   }
+
+  DFS(order) {
+    return this.#dfs(this.root, order);
+  }
+  #dfs(node, order) {
+    if (!node) return [];
+    if (order === "pre") return [node.val, ...this.#dfs(node.left, "pre"), ...this.#dfs(node.right, "pre")];
+    if (order === "in") return [...this.#dfs(node.left, "in"), node.val, ...this.#dfs(node.left, "in")];
+    if (order === "post") return [...this.#dfs(node.left, "post"), ...this.#dfs(node.right, "post"), node.val];
+  }
 }
 
 const tree = new BST();
@@ -72,4 +82,6 @@ tree.insert(18);
 tree.insert(52);
 tree.insert(82);
 tree.insert(27);
-console.log(tree.BFS());
+console.log(tree.DFS("pre"));
+console.log(tree.DFS("in"));
+console.log(tree.DFS("post"));
