@@ -69,7 +69,7 @@ class BST {
   #dfs(node, order) {
     if (!node) return [];
     if (order === "pre") return [node.val, ...this.#dfs(node.left, "pre"), ...this.#dfs(node.right, "pre")];
-    if (order === "in") return [...this.#dfs(node.left, "in"), node.val, ...this.#dfs(node.left, "in")];
+    if (order === "in") return [...this.#dfs(node.left, "in"), node.val, ...this.#dfs(node.right, "in")];
     if (order === "post") return [...this.#dfs(node.left, "post"), ...this.#dfs(node.right, "post"), node.val];
   }
 }
