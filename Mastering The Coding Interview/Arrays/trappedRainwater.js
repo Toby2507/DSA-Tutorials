@@ -25,16 +25,16 @@ const trappedRainwater1 = bars => {
 
 // Optimized solution: 2 pointer technique Time: O(n) Space: O(1)
 const trappedRainwater = bars => {
-  let waterUnits = 0, maxL = maxR = 0, aL = 0, aR = bars.length - 1;
-  while (aL < aR) {
-    if (bars[aL] <= bars[aR]) {
-      if (maxL > bars[aL]) waterUnits += maxL - bars[aL];
-      else maxL = bars[aL];
-      aL++;
+  let waterUnits = 0, maxL = maxR = 0, left = 0, right = bars.length - 1;
+  while (left < right) {
+    if (bars[left] <= bars[right]) {
+      if (maxL > bars[left]) waterUnits += maxL - bars[left];
+      else maxL = bars[left];
+      left++;
     } else {
-      if (maxR > bars[aR]) waterUnits += maxR - bars[aR];
-      else maxR = bars[aR];
-      aR--;
+      if (maxR > bars[right]) waterUnits += maxR - bars[right];
+      else maxR = bars[right];
+      right--;
     }
   }
   return waterUnits;
